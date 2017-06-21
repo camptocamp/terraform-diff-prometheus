@@ -1,0 +1,3 @@
+[submodule "provider/terraform-plan-formatter"]
+	path = provider/terraform-plan-formatter
+	url = https://github.com/Vampouille/terraform-plan-formatter.git

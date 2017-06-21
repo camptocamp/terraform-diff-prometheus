@@ -1,0 +1,20 @@
+version: "2"
+volumes:
+  prometheus_diff_data:
+services:
+  provider:
+    image: vampouille/prometheus_diff_provider
+    build: provider/
+    volumes:
+      - prometheus_diff_data:/data/
+    stdin_open: true
+    tty: true
+    command: bash /provider-loop.sh
+    #    entrypoint: /bin/bash
+  webserver:
+    image: httpd
+    ports:
+      - "8080:80"
+    volumes:
+      - prometheus_diff_data:/usr/local/apache2/htdocs/
+
