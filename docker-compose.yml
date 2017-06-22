@@ -11,6 +11,8 @@ services:
     image: httpd
     ports:
       - "8080:80"
+    labels:
+      prometheus_port: 8080
     volumes:
       - prometheus_diff_data:/usr/local/apache2/htdocs/
 
