@@ -3,14 +3,10 @@ volumes:
   prometheus_diff_data:
 services:
   provider:
-    image: vampouille/prometheus_diff_provider
+    image: camptocamp/terraform-diff-prometheus
     build: provider/
     volumes:
       - prometheus_diff_data:/data/
-    stdin_open: true
-    tty: true
-    command: bash /provider-loop.sh
-    #    entrypoint: /bin/bash
   webserver:
     image: httpd
     ports:
